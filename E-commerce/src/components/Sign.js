@@ -9,7 +9,6 @@ const Sign = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const navigate = useNavigate();
   const [loaders, setLoaders] = useState(false);
@@ -70,6 +69,7 @@ const Sign = () => {
         });
 
         navigate("/");
+        window.location.reload();
       }
 
       result = await result.json();
@@ -90,137 +90,151 @@ const Sign = () => {
 
   return (
     <div
+      className="container-fluid d-flex align-items-center justify-content-center vh-100"
       style={{
-        backgroundImage: `url('/Assets/baby-sneakers-wooden_1323-281.avif')`,
-        backgroundSize: "cover",
+       backgroundColor:"bisque",
         backgroundPosition: "center",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
-      <div className="container">
-        <div className="row">
-          {/* Left Column - Form */}
-          <div className="col-md-6 d-flex justify-content-center align-items-center">
-            <form
-              className="bg-dark text-white p-4 rounded shadow"
-              style={{
-                maxWidth: "400px",
-                width: "100%",
-                padding: "20px",
-                boxSizing: "border-box",
-              }}
-            >
-              <h1 className="text-center fw-bold mb-4">
-                <i>ShoeEnvy Form</i>
-              </h1>
+      <div className="row w-100">
+        {/* Left Column - Image */}
+        <div className="col-md-6 d-none d-md-block">
+          <img
+            src="/Assets/WhatsApp Image 2025-01-11 at 11.37.57_9b8704ce.jpg"
+            alt="Shoe Envy"
+            className="img-fluid rounded"
+            style={{
+              height: "100%",
+              objectFit: "cover",
+              width: "100%",
+            }}
+          />
+        </div>
 
-              {/* Name Input */}
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
+        {/* Right Column - Form */}
+        <div className="col-md-6 d-flex justify-content-center align-items-center">
+        <form
+  className="p-4 rounded shadow w-100"
+  style={{
+    maxWidth: "400px",
+    background: "linear-gradient(to right, #ffffff, #f8f9fa)",
+    borderRadius: "10px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  }}
+>
+  <h1
+    className="text-center fw-bold mb-4"
+    style={{
+      fontSize: "1.5rem",
+      color: "#333",
+    }}
+  >
+    <i>IshqBunai Form</i>
+  </h1>
 
-              {/* Email Input */}
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
+  {/* Name Input */}
+  <div className="mb-3">
+    <label htmlFor="name" className="form-label" style={{ color: "#333" }}>
+      Name
+    </label>
+    <input
+      type="text"
+      className="form-control"
+      id="name"
+      placeholder="Enter your name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      required
+      style={{
+        border: "1px solid #ddd",
+        borderRadius: "5px",
+        padding: "10px",
+      }}
+    />
+  </div>
 
-              {/* Password Input */}
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
+  {/* Email Input */}
+  <div className="mb-3">
+    <label htmlFor="email" className="form-label" style={{ color: "#333" }}>
+      Email
+    </label>
+    <input
+      type="email"
+      className="form-control"
+      id="email"
+      placeholder="Enter your email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+      style={{
+        border: "1px solid #ddd",
+        borderRadius: "5px",
+        padding: "10px",
+      }}
+    />
+  </div>
 
-              {/* Address Input */}
-              <div className="mb-3">
-                <label htmlFor="address" className="form-label">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="address"
-                  placeholder="Enter your address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  required
-                />
-              </div>
+  {/* Password Input */}
+  <div className="mb-3">
+    <label htmlFor="password" className="form-label" style={{ color: "#333" }}>
+      Password
+    </label>
+    <input
+      type="password"
+      className="form-control"
+      id="password"
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      required
+      style={{
+        border: "1px solid #ddd",
+        borderRadius: "5px",
+        padding: "10px",
+      }}
+    />
+  </div>
 
-              {/* Submit Button */}
-              <button
-                type="button"
-                className="btn btn-success w-100"
-                onClick={SUBMIT}
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+  {/* Address Input */}
+  <div className="mb-3">
+    <label htmlFor="address" className="form-label" style={{ color: "#333" }}>
+      Address
+    </label>
+    <input
+      type="text"
+      className="form-control"
+      id="address"
+      placeholder="Enter your address"
+      value={address}
+      onChange={(e) => setAddress(e.target.value)}
+      required
+      style={{
+        border: "1px solid #ddd",
+        borderRadius: "5px",
+        padding: "10px",
+      }}
+    />
+  </div>
 
-          {/* Right Column - Payment Method */}
-          <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-            <button
-              className="btn btn-primary mb-4"
-              onClick={() => setShowDropdown(!showDropdown)}
-            >
-              Payment Method
-            </button>
-            {showDropdown && (
-              <div className="bg-light p-3 rounded shadow">
-                <h3 className="fw-bold">Payment Method:</h3>
-                <p>
-                  <strong>(BANK TRANSFER)</strong> Habib Bank Limited (HBL)
-                </p>
-                <p>
-                  <strong>Account:</strong> 13497900632703 (Mohd Huzaifa)
-                </p>
-                <p>
-                  <strong>IBAN:</strong> PK60 HABB 0013497900632703
-                </p>
-                <p>
-                  <strong>Amount:</strong> To be decided /-
-                </p>
-                <p>
-                  You can use <strong>EASYPAISA</strong> or <strong>JAZZCASH</strong> app to Transfer this amount in HBL Bank.
-                </p>
-              </div>
-            )}
-          </div>
+  {/* Submit Button */}
+  <button
+    type="button"
+    className="btn w-100"
+    onClick={SUBMIT}
+    style={{
+      backgroundColor: "#007bff",
+      color: "#fff",
+      padding: "10px",
+      fontWeight: "bold",
+      borderRadius: "5px",
+      border: "none",
+      cursor: "pointer",
+    }}
+  >
+    Submit
+  </button>
+</form>
+
         </div>
       </div>
     </div>

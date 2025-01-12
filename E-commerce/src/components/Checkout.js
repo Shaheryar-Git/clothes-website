@@ -71,7 +71,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="checkout-page" style={{ backgroundColor: "#000", color: "#fff", minHeight: "100vh" }}>
+    <div className="checkout-page bg-white" style={{ backgroundColor: "#000", color: "#fff", minHeight: "100vh" }}>
       <div>
         <h1 className="text-center">Checkout List</h1>
         <hr style={{ borderColor: "#fff" }} />
@@ -99,7 +99,7 @@ const Checkout = () => {
                         <div>
                           <h5 className="text-truncate font-size-20 text-center">
                             <a href="#" className="text-dark">
-                              {ele.brand}
+                              {ele.fabric}
                             </a>
                           </h5>
                         </div>
@@ -163,7 +163,7 @@ const Checkout = () => {
                           <table className="table mb-0">
                             <tbody>
                               <tr>
-                                <td className="fw-bolder">Total Amount: RS {subtotal}</td>
+                                <td className="fw-bolder">Total Amount: {subtotal} PKR</td>
                               </tr>
                             </tbody>
                           </table>
@@ -193,4 +193,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Checkout;

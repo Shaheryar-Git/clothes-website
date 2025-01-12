@@ -5,56 +5,109 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-
+import Banner from "./Banner";
+import Trending from "./Trending";
 
 const Navbar = () => {
-  const cartsData = useSelector((state) => state.CartReducer.carts);
-  const navigate = useNavigate();
+	const cartsData = useSelector((state) => state.CartReducer.carts);
+	const navigate = useNavigate();
 
+	const handleZeroProducts = () => {
+		if (cartsData.length === 0) {
+			toast.warn("Cart is empty. Please add some products!", {
+				position: "top-center",
+				autoClose: 3000,
+			});
+			navigate("/");
+		}
+	};
 
-  const handleZeroProducts = () => {
-    if (cartsData.length === 0) {
-      toast.warn("Cart is empty. Please add some products!", {
-        position: "top-center",
-        autoClose: 3000,
+	return (
+		<div>
+			<div>
+				<div className="bg-gradient p-2 text-center bg-light text-dark">
+					<div>
+						<marquee
+							className="mb-0 fs-6 fw-bolder"
+							style={{ width: "100%" }}
+						>
+							🎉 AVAIL 50% Discount WITH COUPON CODE 🎉
+						</marquee>
+					</div>
+				</div>
+				<nav className="navbar navbar-expand-lg bg-light">
+					<div className="container-fluid">
+						<Link
+							className="navbar-brand d-flex align-items-center"
+							to="/"
+						>
+							<img
+								src="/Assets/logo3.jpg"
+								alt="Company Logo"
+								style={{
+									objectFit: "contain",
+									maxHeight: "150px",
+									borderRadius: "5px",
+									boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+								}}
+							/>
+						</Link>
+						<button
+							className="navbar-toggler"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span className="navbar-toggler-icon" />
+						</button>
+						<div
+							className="collapse navbar-collapse"
+							id="navbarSupportedContent"
+						>
+							<ul className="navbar-nav ms-auto mb-2 mb-lg-0  ">
+								<Link to="/" className="nav-link">
+									<h5 className="fw-bolder fs-3">
+										<i>Home</i>
+									</h5>
+								</Link>
+								<li className="nav-item">
+									<Link to="/mens" className="nav-link ">
+										<h5 className="fw-bolder fs-3">
+											<i>Mens</i>
+										</h5>
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link to="/womens" className="nav-link">
+										<h5 className="fw-bolder fs-3">
+											<i>Womens</i>
+										</h5>
+									</Link>
+								</li>
+							</ul>
 
-      });
-      navigate("/");
-    }
-  };
-
-  return (
-    <div >
-      <div className="bg-gradient p-2 text-center bg-dark text-white ">
-        <marquee className="mb-0 fs-6 fw-bolder ">🎉 Welcome To ShoeEnvy 🎉 Free Home Delivery</marquee>
-      </div>
-      <nav className="navbar navbar-expand-lg p-3" style={{backgroundColor:"#4D4D4C", height:"100px"}}>
-        <div className="container-fluid">
-          {/* Logo */}
-          <Link className="navbar-brand d-flex align-items-center ms-auto" to="/">
-            <img
-              src="\Assets\Shoes\WhatsApp Image 2024-12-09 at 18.19.38_7d96ac24.jpg"
-              alt="Logo"
-              height={80}
-              width={200}
-              className="me-2"
-            />
-          </Link>
-        
-          <Link
-            to={cartsData.length > 0 ? "/checkout" : "/"}
-            onClick={handleZeroProducts}
-            className="nav-link text-dark fw-bold mt-1 me-3 ms-auto"
-          >
-            <Badge badgeContent={cartsData.length} color="primary">
-              <i className="fa-solid fa-cart-shopping fs-2"></i>
-            </Badge>
-          </Link>
-
-        </div>
-      </nav>
-    </div>
-  );
+							<Link
+								to={cartsData.length > 0 ? "/checkout" : "/"}
+								onClick={handleZeroProducts}
+								className="nav-link text-dark fw-bold mt-1 me-3 ms-auto"
+							>
+								<Badge
+									badgeContent={cartsData.length}
+									color="primary"
+								>
+									<i className="fa-solid fa-cart-shopping fs-2"></i>
+								</Badge>
+							</Link>
+						</div>
+					</div>
+				</nav>
+			</div>
+      
+		</div>
+	);
 };
 
 export default Navbar;

@@ -5,9 +5,8 @@ import Error from "./components/Error";
 import Sign from "./components/Sign";
 import Checkout from "./components/Checkout";
 import MainHome from "./components/MainHome";
-import Shoes from "./components/Shoes";
-import Detailpage from "./components/DetailsPage";
-
+import MensClothes from "./components/MensClothes";
+import Womens from "./components/Womens";
 
 function App() {
   return (
@@ -16,10 +15,10 @@ function App() {
       {/* <Navbar/> */}
         <Routes>
           <Route path="/" element={<MainHome />} />
-          <Route path="/product-details/:shoesID" element={<Detailpage />} />
-          <Route path="/sign" element={<Sign />} />
+          <Route path="/mens" element={<MensClothes />} />
+          <Route path="/womens" element={<Womens />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/shoes" element={<Shoes />} />
+          <Route path="/sign" element={<Sign />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

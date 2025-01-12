@@ -1,0 +1,77 @@
+const Mens = [
+    {
+      id: 18,
+      fabric: "Grip",
+      price: "1500",
+      size: "Standard Size",
+      image: "/Assets/mens1.webp",
+      color: "Purple",
+    },
+    {
+      id: 19,
+      fabric: "Fleece",
+      price: "1300",
+      size: "Medium , Large",
+      image: "/Assets/mens2.webp",
+      color: "Maroon",
+    },
+    {
+      id: 20,
+      fabric: "Cotton Jersey",
+      price: "1400",
+      size: "Standard Size",
+      image: "/Assets/mens3.webp",
+      color: "White",
+    },
+    {
+      id: 21,
+      fabric: "Fleece",
+      price: "3000",
+      size: "Standard Size",
+      image: "/Assets/men4.webp",
+      color: "Green",
+    },
+    {
+      id: 21,
+      fabric: "Fleece",
+      price: "2700",
+      size: "Standard Size",
+      image: "/Assets/mens5.webp",
+      color: "Blue",
+    },
+    {
+      id: 22,
+      fabric: "Fleece",
+      price: "3000",
+      size: "Standard Size",
+      image: "/Assets/mens6.webp",
+      color: "Grey",
+    },
+    {
+      id: 23,
+      fabric: "Wool",
+      price: "3500",
+      size: "Large",
+      image: "/Assets/mens7.webp",
+      color: "Black",
+    },
+    {
+      id: 24,
+      fabric: "Silk Blend",
+      price: "4000",
+      size: "Medium",
+      image: "/Assets/mens8.webp",
+      color: "Red",
+    },
+    {
+      id: 25,
+      fabric: "Polyester",
+      price: "2000",
+      size: "Small , Medium",
+      image: "/Assets/mens10.webp",
+      color: "Navy Blue",
+    },
+  ];
+  
+  export default Mens;
+  
