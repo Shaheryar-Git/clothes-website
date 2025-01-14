@@ -132,7 +132,7 @@ const Checkout = () => {
                             </button>
                             {quantities[ele.id] || 1}
                             <button
-                              className="btn btn-light fs-5  ms-3"
+                              className="btn btn-light fs-5  ms-1"
                               onClick={() => IncreaseP(ele.id)}
                             >
                               +

@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import Banner from "./Banner";
-import Trending from "./Trending";
+
 
 const Navbar = () => {
 	const cartsData = useSelector((state) => state.CartReducer.carts);
@@ -18,7 +17,7 @@ const Navbar = () => {
 				position: "top-center",
 				autoClose: 3000,
 			});
-			navigate("/");
+			// navigate("/");
 		}
 	};
 
@@ -48,7 +47,6 @@ const Navbar = () => {
 									objectFit: "contain",
 									maxHeight: "150px",
 									borderRadius: "5px",
-									boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
 								}}
 							/>
 						</Link>
